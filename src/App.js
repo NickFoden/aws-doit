@@ -1,15 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Auth from "aws-amplify";
+import awsconfig from "./aws-exports";
+import { withAuthenticator } from "aws-amplify-react";
+
+Auth.configure(awsconfig);
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <p>New Update</p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -23,4 +26,5 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);
+// export default App;
